@@ -39,6 +39,71 @@ var questionSchema = new mongoose.Schema({
 var Question = mongoose.model("Question", questionSchema);
 
 
+
+
+// GETS
+
+app.models = {};
+app.models.user = require('./models/user');
+app.models.user = require('./models/question');
+
+app.use('/js', express.static('assets/js'));
+app.use('/css', express.static('assets/css'));
+app.use('/img', express.static('assets/img'));
+app.use('/fonts', express.static('assets/fonts'));
+app.use('/videos', express.static('assets/videos'));
+app.use('/', express.static('assets/html'));
+
+app.get('/test', function (req, res) {
+    res.send('<h1>Hello TEST</h1>');
+});
+
+app.get('/', function (req, res) {
+    res.sendFile(__dirname + '/index.html');
+});
+
+
+app.get('/top-scores', function (req, res) {
+    res.sendFile(__dirname + '/top-scores.html');
+});
+
+app.get('/add_question', function (req, res) {
+    res.sendFile(__dirname + '/add_question.html');
+});
+
+http.listen(3000, function () {
+    console.log('listening on *:3000');
+});
+
+app.get('/users', function (req, res){
+
+    User.find({}, function(err, results){
+        if (err){console.log(err);return err;}
+        console.log("okay");
+        console.log(results);
+        res.send(results);
+    })
+
+});
+
+
+
+app.get('/questions', function (req, res){
+
+    Question.find({}, function(err, results){
+        if (err){console.log(err);return err;}
+        console.log("Here's all the questions that were ever asked you nosy nelly ! ");
+        console.log(results);
+        res.send(results);
+    })
+
+});
+
+
+
+
+
+
 // POSTS
 
 app.post("/addname", (req, res) => {
@@ -52,14 +117,14 @@ app.post("/addname", (req, res) => {
 
     User.find({ 'email': email }, function (err, docs) {
 
-//        console.log(err);
-//        console.log(docs);
+        //        console.log(err);
+        //        console.log(docs);
 
         if( docs.length <= 0 ){
 
             myData.save()
                 .then(item => {
-//                var _id = myData._id
+                //                var _id = myData._id
                 console.log(myData);
                 res.status(200).send(myData._id);
 
@@ -104,24 +169,24 @@ app.post("/addquestions", (req, res) => {
 
     Question.find({ }, function (err, docs) {
 
-                console.log("err " + err);
-                console.log("docs" + docs);
+        console.log("err " + err);
+        console.log("docs" + docs);
 
-            myData.save()
-                .then(item => {
-                //                var _id = myData._id
-                console.log(myData);
-                res.status(200).send(myData._id);
+        myData.save()
+            .then(item => {
+            //                var _id = myData._id
+            console.log(myData);
+            res.status(200).send(myData._id);
 
-                //        console.log(myData);
-                //        console.log(email);
-                //        console.log(firstname);
-                //        console.log(lasttname);
+            //        console.log(myData);
+            //        console.log(email);
+            //        console.log(firstname);
+            //        console.log(lasttname);
 
-            })
-                .catch(err => {
-                res.status(400).send("unable to save Question to database");
-            });
+        })
+            .catch(err => {
+            res.status(400).send("unable to save Question to database");
+        });
 
 
 
@@ -131,68 +196,4 @@ app.post("/addquestions", (req, res) => {
 
 
 });
-
-
-// GETS
-
-
-app.get('/users', function (req, res){
-
-    User.find({}, function(err, results){
-        if (err){console.log(err);return err;}
-        console.log("okay");
-        console.log(results);
-        res.send(results);
-    })
-
-});
-
-
-
-app.get('/questions', function (req, res){
-
-    Question.find({}, function(err, results){
-        if (err){console.log(err);return err;}
-        console.log("Here's all the questions that were ever asked you nosy nelly ! ");
-        console.log(results);
-        res.send(results);
-    })
-
-});
-
-
-app.models = {};
-app.models.user = require('./models/user');
-app.models.user = require('./models/question');
-
-app.use('/js', express.static('assets/js'));
-app.use('/css', express.static('assets/css'));
-app.use('/img', express.static('assets/img'));
-app.use('/fonts', express.static('assets/fonts'));
-app.use('/videos', express.static('assets/videos'));
-app.use('/', express.static('assets/html'));
-
-app.get('/test', function (req, res) {
-    res.send('<h1>Hello TEST</h1>');
-});
-
-app.get('/', function (req, res) {
-    res.sendFile(__dirname + '/index.html');
-});
-
-
-app.get('/top-scores', function (req, res) {
-    res.sendFile(__dirname + '/top-scores.html');
-});
-
-app.get('/add_question', function (req, res) {
-    res.sendFile(__dirname + '/add_question.html');
-});
-
-http.listen(3000, function () {
-    console.log('listening on *:3000');
-});
-
-
-
 
