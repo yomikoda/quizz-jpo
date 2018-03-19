@@ -1,0 +1,72 @@
+//header {
+//    #burger{
+//        position: fixed;
+//        top:3%;
+//        right:10%;
+//        height:30px;
+//        width:30px;
+//        z-index: 100;
+//        display: flex;
+//        flex-direction: column;
+//        justify-content: space-between;
+//        cursor: pointer;
+//        transition:all ease 1s;
+//
+//        .line{
+//            height:5px;
+//            width:100%;
+//            background-color:#fff;
+//        }
+//
+//    }
+//    .clickedburger{
+//        transform: rotate(90deg);
+//
+//        transition:all ease 1s;
+//    }
+//    .clickedburger+nav{
+//        top:0%;
+//        transition:top ease 1s;
+//    }
+//
+//    nav {
+//        position: fixed;
+//        top: -100%;
+//        z-index: 80;
+//        height: 30%;
+//        width: 90%;
+//        margin-left: 5%;
+//        background-color: orange;
+//        transition:top ease 1s;
+//
+//        ul {
+//            height: 100%;
+//            width: 100%;
+//            display: flex;
+//            justify-content: space-around;
+//            flex-direction:row;
+//            align-content: space-around;
+//            align-items: center;
+//            flex-wrap: wrap;
+//            li {
+//                height: 35px;
+//                width: 200px;
+//                line-height: 35px;
+//                box-sizing: border-box;
+//                border: 1px solid black;
+//                border-radius: 5px;
+//                a {
+//                    display: block;
+//                    text-decoration: none;
+//                    color: #000;
+//                    transition: all ease 1s;
+//                    &:hover {
+//                        background-color: #000;
+//                        color: orange;
+//                        transition: all ease 1s;
+//                    }
+//                }
+//            }
+//        }
+//    }
+//}

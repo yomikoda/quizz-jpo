@@ -1,0 +1,394 @@
+@import 'components/nav';
+@import 'components/qanda';
+
+body {
+
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    background-color: #35399a;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    position: relative;
+}
+
+header {
+
+    h1 {
+        text-align: center;
+        img {
+            height: auto;
+            max-width: 300px;
+            @media screen and (max-width: 650px) {
+                margin-top:10px;
+                max-width: 40vw;
+                height: auto;
+            }
+        }
+
+
+    }
+}
+
+#scott {
+    background-image: url(../../img/scott.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom;
+    width: 300px;
+    height: 50vh;
+    position: absolute;
+    z-index: 300;
+    bottom: 0;
+    left: 5px;
+    @media screen and (max-width: 650px) {
+        height:50vw;
+        width: 45vw;
+        left: 0;
+    }
+}
+
+#container {
+    width: 80vw;
+    height: 80vh;
+    @media screen and (max-width: 1023px) {
+        height:80vh;
+    }
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+
+
+}
+
+#content {
+    height: 90%;
+    width: 90%;
+    background-color: #fff;
+    border: 2px solid #ceccd7;
+    border-radius: 30px;
+    position: relative;
+    opacity: 1;
+    &::after {
+        content: '';
+        height: 45px;
+        width: 76px;
+        background-color: royalblue;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        background-image: url(../../img/hq-logo-Q.jpg);
+    }
+    text-align: center;
+    display: flex;
+    justify-content:center;
+
+    flex-direction: column;
+    font-family: Roboto,
+    sans-serif;
+    font-size: 50px;
+    font-weight: 100;
+    line-height: 50px;
+    #intro {
+        opacity: 1;
+    }
+    h2 {
+        font-weight: 900;
+        color: #35399a;
+    }
+    h2,
+    p {
+        width: 85%;
+        margin: 0 auto;
+        @include transition;
+    }
+
+
+}
+
+.timer {
+    height: 150px;
+    width: 150px;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin-top: -20px;
+    border-radius: 100px;
+    box-sizing: border-box;
+    border: 2px solid #e6e6e6;
+    color: #fff;
+    font-weight: 500;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -75px;
+    .countdown {
+        height: 150px;
+        width: 150px;
+        line-height: 150px;
+        text-align: center;
+        font-size: 6vw;
+
+    }
+
+}
+
+.qanda {
+    color: #444351;
+    width: 90%;
+    margin: 0 auto;
+    height: 500px;
+    display: flex;
+    justify-content: space-around;
+    align-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    .question {
+        font-family: Abeezee;
+        font-weight: bold;
+        font-size: 30px;
+        width: 80%;
+        line-height: 40px;
+        margin-top: 80px;
+    }
+    .answer-container {
+        width: 70%;
+        height: 70%;
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        .answer {
+            height: 60px;
+            border: 2px solid #e6e6e6;
+            box-sizing: border-box;
+            border-radius: 20px;
+            line-height: 60px;
+            width: 100%;
+            cursor: pointer;
+            @include transition;
+            font-size: 20px;
+            font-weight: 400;
+            letter-spacing: 1px;
+
+            & p {
+                color: #444351;
+                @include transition;
+            }
+            &:hover{
+                background-color: #de326a;
+
+                @include transition;
+            }
+            &:hover p {
+                color: #fff;
+                @include transition;
+            }
+
+
+        }
+    }
+
+}
+#score{
+    position: fixed;
+    bottom:0;
+    height:60px;
+    background-color:#de326a;
+    width:100%;
+    left:0;
+    line-height: 60px;
+    color:#fff;
+    font-weight: 300;
+}
+
+#subscribe {
+    width: 500px;
+    height: 80px;
+    background-color: #df326a;
+    margin: 0 auto;
+    line-height: 80px;
+    color: #fff;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 35px;
+    border: 1px solid #df326a;
+    @include transition;
+    cursor: pointer;
+    &:hover {
+        @include transition;
+        letter-spacing: 2px;
+        color: #df326a;
+        background-color: #fff;
+        border: 1px solid #df326a;
+    }
+}
+
+#subform {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    div {
+        width: 100%;
+        margin: 10px auto;
+        label {
+            font-family: Roboto;
+            font-weight: 700;
+            font-size: 23px;
+            color: #35399a;
+            display: block;
+            margin: 0;
+            padding: 0;
+            float: left;
+            width: 28%;
+            text-align: right;
+            padding-right: 2%;
+            line-height: 65px;
+        }
+        input[type="text"],
+        input[type="email"] {
+            border: none;
+            height: 50px;
+            padding: 0;
+            display: block;
+            margin: 0;
+            padding: 0;
+            float: left;
+            width: 70%;
+            border-bottom: 1px solid #df326a;
+            font-size: 30px;
+            color: #df326a;
+            box-sizing: border-box;
+            &:focus {
+                outline: none !important;
+                border-color: #df326a;
+                border: 1px solid #df326a;
+                box-sizing: border-box;
+            }
+        }
+
+        @media screen and (max-width: 1023px) {
+            input[type="text"],
+            input[type="email"],
+            label {
+                float: none;
+                text-align: center;
+                margin: 0 auto;
+                font-size: 4.5vw;
+            }
+        }
+    }
+    input[type="submit"] {
+        border: none;
+        background-color: #df326a;
+        height: 40px;
+        width: 30%;
+        margin-top: 30px;
+        align-self: flex-end;
+        font-size: 22px;
+        color: #fff;
+        border-radius: 10px;
+        box-sizing: border-box;
+        border: 1px solid #df326a;
+        @include _transition;
+        cursor: pointer;
+        &:hover {
+            background-color: #fff;
+            @include _transition;
+            color: #df326a;
+            font-weight: 700;
+        }
+    }
+
+    @media screen and (max-width: 1023px) {
+        input[type="submit"] {
+
+            height: 40px;
+            width: 80%;
+            margin: 20px auto 0;
+
+        }
+    }
+
+}
+
+#mail .mail-error {
+    font-size: 15px;
+    color: #df326a;
+    font-weight: 500;
+}
+
+#topscores {
+    position: fixed;
+    top: -20px;
+    right: 20px;
+    background-color: #df326a;
+    border-radius: 10px;
+    height: 60px;
+    width: 180px;
+    color: #fff;
+    line-height: 80px;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+    a {
+        display: block;
+        text-decoration: none;
+        color: #fff;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+}
+
+.selectedanswer {
+    height: 60px;
+    border: 2px solid #e6e6e6;
+    box-sizing: border-box;
+    border-radius: 20px;
+    line-height: 60px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    background-color: #de326a;
+    color:#fff;
+    p{
+        color: #fff;
+    }
+}
+
+#currentscore{
+    position: absolute;
+    height:100px;
+    width:200px;
+    left:20px;
+    top:0;
+    background-color:#6dd7d7;
+    border-radius: 20px;
+    margin-top:-30px;
+    color:black;
+    font-size: 30px;
+    line-height: 140px;
+    text-align: center;
+
+}
+
+//@media screen and (max-width: 1023px) {
+//
+//    body {}
+//
+//}
+//
+//@media screen and (max-width: 650px) {
+//
+//    body {}
+//}

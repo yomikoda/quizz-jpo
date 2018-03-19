@@ -1,0 +1,26 @@
+{
+  "name": "node-express",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Node Express test",
+  "keywords": [],
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "~4.14.0",
+    "mongodb": "^3.0.2",
+    "mongoose": "^5.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {},
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/yomikoda/quizz_jpo_webstart_HQ"
+  },
+  "author": "Yomikoda <yomikoda@gmail.com>",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/yomikoda/quizz_jpo_webstart_HQ/issues"
+  },
+  "homepage": "https://github.com/yomikoda/quizz_jpo_webstart_HQ#readme"
+}
