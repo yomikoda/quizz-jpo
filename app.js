@@ -189,8 +189,8 @@ app.get('/add_question', function (req, res) {
     res.sendFile(__dirname + '/add_question.html');
 });
 
-http.listen(3000, function () {
-    console.log('listening on *:3000');
+http.listen(8000, function () {
+    console.log('listening on *:8000');
 });
 
 
