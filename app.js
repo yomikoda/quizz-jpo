@@ -79,8 +79,8 @@ app.get('/users', function (req, res){
 
     User.find({}, function(err, results){
         if (err){console.log(err);return err;}
-//        console.log("okay");
-//        console.log(results);
+        console.log("okay");
+        console.log(results);
         res.send(results);
     })
 
@@ -92,8 +92,8 @@ app.get('/questions', function (req, res){
 
     Question.find({}, function(err, results){
         if (err){console.log(err);return err;}
-//        console.log("Here's all the questions that were ever asked you nosy nelly ! ");
-//        console.log(results);
+        console.log("Here's all the questions that were ever asked you nosy nelly ! ");
+        console.log(results);
         res.send(results);
     })
 
@@ -125,7 +125,7 @@ app.post("/addname", (req, res) => {
             myData.save()
                 .then(item => {
                 //                var _id = myData._id
-//                console.log(myData);
+                console.log(myData);
                 res.status(200).send(myData._id);
 
                 //        console.log(myData);
@@ -169,13 +169,13 @@ app.post("/addquestions", (req, res) => {
 
     Question.find({ }, function (err, docs) {
 
-//        console.log("err " + err);
-//        console.log("docs" + docs);
+        console.log("err " + err);
+        console.log("docs" + docs);
 
         myData.save()
             .then(item => {
             //                var _id = myData._id
-//            console.log(myData);
+            console.log(myData);
             res.status(200).send(myData._id);
 
             //        console.log(myData);
