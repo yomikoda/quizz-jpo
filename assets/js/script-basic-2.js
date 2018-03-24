@@ -13,9 +13,9 @@ function HQquizz() {
     $.get("questions",null,function(data){
 
         var quizzQ = data;
-        console.log(quizzQ);
+//        console.log(quizzQ);
         var quizzlength = quizzQ.length;
-        console.log(quizzlength);
+//        console.log(quizzlength);
 
 
         function loadquestion(i) {
@@ -73,8 +73,8 @@ function HQquizz() {
             document.getElementById('score').innerHTML = youranswer;
             //        clearInterval(questionTimer);
 
-            console.log(youranswer);
-            console.log(quizzQ[q].correctAnswer);
+//            console.log(youranswer);
+//            console.log(quizzQ[q].correctAnswer);
 
             checkrightanswer();
 
@@ -89,9 +89,9 @@ function HQquizz() {
             console.log(score);
 
             if (youranswer == quizzQ[q].correctAnswer) {
-                console.log('YAS');
+//                console.log('YAS');
                 score = score + 10;
-                console.log("YOU +1 your score you rascal, you're now at : " + score);
+//                console.log("YOU +1 your score you rascal, you're now at : " + score);
                 $("#currentscore").html("<p>SCORE : "+ score+"</p>");
             } else {
 
@@ -99,7 +99,7 @@ function HQquizz() {
                     score == 0;
                 }
                 else{
-                    console.log("WHYYYYYY");
+//                    console.log("WHYYYYYY");
                     score = score - 5;
                     console.log("BOO YOU WHORE ! YOU FAILED SO HARD THE PLASTICS ARE KICKING YOU OUT : " + score);
                     $("#currentscore").html("<p>SCORE : "+ score+"</p>");
@@ -109,7 +109,7 @@ function HQquizz() {
 
 
             q++;
-            console.log(q);
+//            console.log(q);
             loadquestion(q);
 
         };
@@ -145,7 +145,7 @@ function addUser(e) {
 
         })
         .done(function (response) {
-            console.log(response);
+//            console.log(response);
 
             if (response == "Email already in use - Please enter another e-mail adress") {
                 mailerror(response);
@@ -187,7 +187,7 @@ function startQuizz(playerId) {
 }
 
 $("#subscribe").click(function () {
-    console.log('lol');
+//    console.log('lol');
 
     $("#intro").fadeOut(1000, function () {
         $(this).empty().load('form.html', function () {
