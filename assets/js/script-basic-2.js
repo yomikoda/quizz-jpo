@@ -5,8 +5,9 @@ var q = 0;
 var score = 0;
 $("#currentscore").html("<p>SCORE : "+ score+"</p>");
 
-function getquestions() {
+// QUESTIONS
 
+function HQquizz() {
 
 
     $.get("questions",null,function(data){
@@ -25,13 +26,43 @@ function getquestions() {
 
             }
             else{
-                var question = '<div class="question">' + "Your Final Score :" + '</div><div class="answer-container"><div class="answer"><p>' + score+ '</p>';
+                var question = '<div class="question">' + "Your Final Score :" + '</div><div class="answer-container"><div class="answer"><p>' + score+ '</p></div></div>';
                 $(".qanda").html(question);
             }
 
         }
 
         loadquestion(q);
+
+
+        // TIMER
+
+
+        var timeleft = 10;
+
+
+
+        var questionTimer;
+
+        function startTimer (timeleft){
+
+            $('.countdown').html(timeleft);
+            questionTimer = setInterval(function(){
+                if(timeleft <= 0){
+                    clearInterval(questionTimer);
+                } else{
+                    timeleft--;
+                    $('.countdown').html(timeleft);
+                }
+
+            },1000);
+
+        }
+        function stopTimer (){
+            clearInterval(questionTimer);
+        }
+
+        startTimer(10);
 
         //ANSWER CHECK and NEXT QUESTION
 
@@ -46,6 +77,11 @@ function getquestions() {
             console.log(quizzQ[q].correctAnswer);
 
             checkrightanswer();
+
+
+
+
+
         });
 
 
@@ -78,106 +114,19 @@ function getquestions() {
 
         };
 
-
     });
 
-};
-
-
-getquestions(q);
-
-
-
-
-
-// QUESTIONS
-
-function HQquizz() {
-
-
-
-
-
-
-
-    var quizzlength = quizzQ.length;
-    console.log(quizzlength);
-
-
-    console.log("BASIC SCORE FOR A BASIC HUMAN IS : " + score);
-
-    function loadquestion(i) {
-
-        var question = '<div class="question">' + quizzQ[i].question + '</div><div class="answer-container"><div class="answer"><p>' + quizzQ[i].answers.a + '</p></div><div class="answer"><p>' + quizzQ[i].answers.b + '</p></div><div class="answer"><p>' + quizzQ[i].answers.c + '</p></div></div>';
-
-        $(".qanda").html(question);
-
-
-    }
-
-
-    loadquestion(q);
-    console.log(q);
-
-
-
-
-
-
-    // TIMER
-
-
-//        var timeleft = 10;
-
-//        function timer(){
-//            document.getElementsByClassName("countdown").value = 10 - --timeleft;
-//            $(".countdown").html(timeleft);
-//                    console.log(timeleft);
-//            if(timeleft <= 0){
-//                clearInterval(questionTimer);
-//            }
-//        }
-//        var questionTimer = setInterval(function(){
-//            timer();
-//            var lol = $('.countdown').html;
-//            console.log(lol);
-//
-//        },1000);
-
-    var questionTimer;
-    function startTimer (timeleft){
-        //var timeleft = 10
-        $('.countdown').html(timeleft);
-        questionTimer = setInterval(function(){
-            if(timeleft <= 0){
-                clearInterval(questionTimer);
-            } else{
-                timeleft--;
-                $('.countdown').html(timeleft);
-            }
-
-        },1000);
-
-    }
-    function stopTimer (){
-        clearInterval(questionTimer);
-    }
-    startTimer(10);
 
 
 
 
 };
 
-//HQquizz();
+
 
 
 function addUser(e) {
     e.preventDefault();
-    //
-    //                var _firstname = document.getElementById("firstname").value,
-    //                    _lastname = document.getElementById("lastname").value,
-    //                    _email = document.getElementById("email").value;
 
     var newUser = {
         'firstname': $('#firstname').val(),
@@ -228,17 +177,11 @@ function launchQuizz(playerId) {
     });
 }
 
-startQuizz();
+//startQuizz();
 
 function startQuizz(playerId) {
-    //    loadquestion(q);
-    //    console.log(q);
-    $(".answer").on('click', function (e) {
 
-        $(this).toggleClass("selectedanswer");
-
-    })
-
+    HQquizz(q);
 
 
 }
