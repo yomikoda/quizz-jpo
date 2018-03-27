@@ -20,9 +20,11 @@ function HQquizz() {
 
         function loadquestion(i) {
             if (q < quizzlength ){
-                var question = '<div class="question">' + quizzQ[i].question + '</div><div class="answer-container"><div class="answer"><p>' + quizzQ[i].answerA + '</p></div><div class="answer"><p>' + quizzQ[i].answerB + '</p></div><div class="answer"><p>' + quizzQ[i].answerC + '</p></div></div>';
+                var question = '<div class="question">' + quizzQ[i].question + '</div><div class="answer-container"><div class="answer"><p>' + quizzQ[i].answerA + '</p></div><div class="answer"><p>' + quizzQ[i].answerB + '</p></div><div class="answer"><p>' + quizzQ[i].answerC + '</p></div><div class="answer"><p>' + quizzQ[i].answerD + '</p></div></div>';
 
                 $(".qanda").html(question);
+                stopTimer();
+                startTimer(10);
 
             }
             else{
@@ -59,10 +61,12 @@ function HQquizz() {
 
         }
         function stopTimer (){
-            clearInterval(questionTimer);
+            clearInterval(timeleft);
         }
 
-        startTimer(10);
+//        startTimer(10);
+
+
 
         //ANSWER CHECK and NEXT QUESTION
 
@@ -77,9 +81,6 @@ function HQquizz() {
 //            console.log(quizzQ[q].correctAnswer);
 
             checkrightanswer();
-
-
-
 
 
         });
@@ -109,7 +110,6 @@ function HQquizz() {
 
 
             q++;
-//            console.log(q);
             loadquestion(q);
 
         };

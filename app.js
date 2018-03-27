@@ -33,6 +33,7 @@ var questionSchema = new mongoose.Schema({
     answerA : String,
     answerB : String,
     answerC : String,
+    answerD : String,
     correctAnswer : String
 });
 
@@ -163,6 +164,7 @@ app.post("/addquestions", (req, res) => {
     var answerA = req.body.answer;
     var answerB = req.body.answer;
     var answerC = req.body.answer;
+    var answerD = req.body.answer;
     var correctAnswer = req.body.correctAnswer;
 
 
